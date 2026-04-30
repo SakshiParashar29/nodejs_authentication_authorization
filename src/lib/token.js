@@ -13,6 +13,10 @@ const createAccessToken = (userId, role, tokenVersion) => {
     });
 }
 
+const verifyAccessToken = (token) => {
+    return jwt.verify(token, process.env.JWT_ACCESS_SECRET);
+}
+
 const createRefreshToken = (userId, tokenVersion) => {
     const payload = {
         sub: userId,
@@ -28,5 +32,5 @@ const verifyRefreshToken = (token) => {
     return jwt.verify(token, process.env.JWT_REFRESH_SECRET);
 }
 
-module.exports = {createAccessToken, createRefreshToken, verifyRefreshToken};
+module.exports = {createAccessToken, createRefreshToken, verifyRefreshToken, verifyAccessToken};
 
