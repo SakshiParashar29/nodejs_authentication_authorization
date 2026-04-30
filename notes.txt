@@ -1,0 +1,47 @@
+What is a cookie?
+How do cookies work in HTTP?
+Where are cookies stored?
+What kind of data is typically stored in cookies?
+What is the difference between session cookies and persistent cookies?
+
+What is the difference between cookies, localStorage, and sessionStorage?
+When would you use cookies instead of localStorage?
+Why is localStorage considered less secure for authentication?
+
+What is an access token?
+What is a refresh token?
+Why do we use refresh tokens?
+What is the difference between access token and refresh token?
+What is token-based authentication?
+
+Explain the complete login authentication flow.
+How does token refresh work?
+What happens when an access token expires?
+How do you handle user sessions in a stateless system?
+How would you implement logout in this system?
+
+What does httpOnly do?
+Why is httpOnly important?
+What does secure: true mean?
+When should secure be used?
+What is sameSite?
+Difference between sameSite: strict, lax, and none?
+What does maxAge do?
+Difference between maxAge and expires?
+What happens if you don’t set sameSite?
+
+What is XSS (Cross-Site Scripting)?
+How do cookies help prevent XSS?
+What is CSRF (Cross-Site Request Forgery)?
+How do cookies relate to CSRF attacks?
+How does sameSite help prevent CSRF?
+Can cookies be stolen? How?
+How do you secure cookies?
+What are common vulnerabilities in cookie-based authentication?
+
+
+Cookies vs JWT — what’s the difference?
+Is storing JWT in cookies secure?
+Why not store tokens in localStorage?
+What are the pros and cons of cookie-based authentication?
+What are the pros and cons of token-based authentication?
