@@ -1,3 +1,24 @@
+ENV (all required variable)
+
+NODE_ENV=developement
+PORT=5000
+
+MONGO_URI=mongodb+srv://<username>:<password>@cluster0.rgsg0d8.mongodb.net/<DB_name>
+
+JWT_REFRESH_SECRET=JWT_REFRESH_SECRET
+JWT_ACCESS_SECRET=JWT_ACCESS_SECRET
+
+SMTP_HOST=
+SMTP_PORT=
+SMTP_USER=
+SMTP_PASS=
+EMAIL_FROM="Auth APP <sakshiparashar2910@gmail.com>"
+
+
+GOOGLE_CLIENT_ID=
+GOOGLE_CLIENT_SECRET=
+GOOGLE_REDIRECT_URI=http://localhost:5000/auth/google/callback
+
 What is a cookie?
 How do cookies work in HTTP?
 Where are cookies stored?
