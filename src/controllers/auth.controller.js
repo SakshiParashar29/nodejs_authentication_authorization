@@ -6,6 +6,7 @@ const sendEmail = require('../lib/email');
 const { createAccessToken, createRefreshToken, verifyRefreshToken } = require('../lib/token');
 const bcrypt = require('bcryptjs');
 const crypto = require('crypto');
+const {authenticator} = require('otplib');
 
 
 function getAppUrl() {
@@ -137,7 +138,7 @@ const loginUserHandler = async (req, res) => {
             });
         }
 
-        const { email, password } = result.data;
+        const { email, password, twoFactorCode } = req.body;
 
         const normalisedEmail = email.toLowerCase().trim();
 
@@ -161,6 +162,33 @@ const loginUserHandler = async (req, res) => {
             return res.status(403).json({
                 message: "Please verify your email befor logging in!!"
             });
+        }
+
+        if(user.twoFactorEnabled){
+
+            if(!twoFactorCode){
+               return res.status(400).json({
+                message: "Two factor code is required"
+               });
+            }
+
+            if(!user.twoFactorSecret){
+                return res.status(400).json({
+                    message: "Two factor misconfigured for this account"
+                });
+            }
+
+            // verify the code using optlib
+
+            const isValidCode = authenticator.check(twoFactorCode, user.twoFactorSecret);
+
+            if(!isValidCode){
+                return res.status(400).json({
+                    message: "Invalid two factor code"
+                });
+            }
+
+            
         }
 
         const accessToken = createAccessToken(user.id, user.role, user.tokenVersion);

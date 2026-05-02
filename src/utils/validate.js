@@ -9,6 +9,7 @@ const validateRegister = z.object({
 const validateLogin = z.object({
     email: z.string().email(),
     password: z.string().min(6),
+    twoFactorCode: z.string().optional()
 });
 
 module.exports = {validateRegister, validateLogin}

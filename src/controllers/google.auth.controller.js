@@ -5,6 +5,8 @@ const hashPassword = require('../lib/hash');
 const { createAccessToken, createRefreshToken } = require('../lib/token');
 
 /*
+  uses google console cloud
+
   Here we need two functions, first which will start the authentication and second which will handle the callback
  */
 function getGoogleClient() {
